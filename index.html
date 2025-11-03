@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tanifesto · Tan Ağırkaya</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Free social media audit. 256M+ views generated. Get your roadmap in 48h.">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0a0a0a;
+      color: #ffffff;
+      line-height: 1.5;
+      font-size: 17px;
+      overflow-x: hidden;
+    }
+    /* subtle grain (unchanged) */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.02'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 999;
+    }
+    /* floating orb (unchanged) */
+    .orb {
+      position: fixed; width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,31,79,0.15) 0%, transparent 70%);
+      top: -200px; right: -200px; animation: float 20s ease-in-out infinite;
+      pointer-events: none; z-index: 0;
+    }
+    @keyframes float { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(-80px,80px) scale(1.1)} }
+
+    .container { max-width: 680px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+    /* HERO */
+    .hero {
+      min-height: 90vh; display: flex; flex-direction: column; justify-content: center;
+      padding: 80px 0 60px;
+    }
+    .hero-topline { display:flex; align-items:center; gap:16px; margin-bottom:24px; }
+    .avatar {
+      width:80px; height:80px; border-radius:50%;
+      background: linear-gradient(135deg, #00d4aa 0%, #2cf6ff 100%);
+      display:grid; place-items:center; font-size:2rem; font-weight:800; color:#0a0a0a;
+      animation: fadeIn 0.6s ease-out, pulse 3s ease-in-out infinite;
+      box-shadow: 0 0 40px rgba(44,246,255,0.3);
+    }
+    @keyframes pulse { 0%,100%{box-shadow:0 0 40px rgba(44,246,255,0.3)} 50%{box-shadow:0 0 60px rgba(44,246,255,0.5)} }
+    .hero-id { display:flex; flex-direction:column; gap:4px; }
+    .hero-id-name { font-size: 0.95rem; font-weight: 600; }
+    .hero-id-role { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.5); }
+
+    h1 {
+      font-size: 3.8rem; font-weight: 700; line-height: 1.1; letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+    .hero-sub { font-size: 1.2rem; color: rgba(255,255,255,0.7); margin-bottom: 14px; }
+
+    .cta-row { display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+    .cta-primary {
+      display:inline-flex; align-items:center; gap:12px; background:#ff1f4f; color:#fff;
+      padding:16px 24px; border-radius:12px; font-size:1rem; font-weight:600;
+      text-decoration:none; transition:.2s; box-shadow:0 0 40px rgba(255,31,79,0.4);
+    }
+    .cta-primary:hover { transform: translateY(-3px); box-shadow:0 8px 50px rgba(255,31,79,0.6); }
+    .cta-text { display:block; margin-top:8px; font-size:0.95rem; color:#fff; opacity:.75; }
+    .cta-text:hover { opacity:1; text-decoration: underline; }
+
+    /* Inline email (B2) */
+    .hero-inline-form { margin-top: 16px; display:flex; gap:0; flex-wrap:wrap; position:relative; }
+    .hero-input-wrap { position: relative; flex:1; min-width:260px; }
+    .hero-inline-form input {
+      width:100%;
+      background: rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.1);
+      border-radius:10px; padding:12px 44px 12px 14px; color:#fff; font-size:1rem;
+    }
+    .hero-inline-form input:focus { outline:none; border-color:#2cf6ff; box-shadow:0 0 0 3px rgba(44,246,255,0.1); }
+    .input-action {
+      position:absolute; right:6px; top:50%; transform: translateY(-50%);
+      background: rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12);
+      color:#fff; border-radius:8px; padding:8px 10px; font-weight:700; cursor:pointer;
+      font-size:0.95rem; line-height:1; display:flex; align-items:center; justify-content:center;
+    }
+    .input-action:hover { background: rgba(255,255,255,0.1); }
+
+    /* Before/After visual (now an <img>) */
+    .before-after { margin-top:16px; }
+    .ba-img {
+      width:100%;
+      height:auto;
+      aspect-ratio: 3 / 1;
+      object-fit: cover;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.06);
+      display:block;
+    }
+    .ba-caption {
+      margin-top:8px; font-size:0.95rem; color:rgba(255,255,255,0.85);
+      text-align:center; min-height:1.4em; transition: opacity .4s ease;
+    }
+    .quote-role { color: rgba(255,255,255,0.5); font-size: 0.9rem; }
+
+    /* AUDIT FORM */
+    .audit { padding: 60px 0; }
+    .section-tag {
+      display:inline-block; padding:6px 12px; background:rgba(255,31,79,0.1);
+      border:1px solid rgba(255,31,79,0.3); border-radius:6px; font-size:0.75rem;
+      font-weight:600; text-transform:uppercase; letter-spacing:0.1em; color:#ff1f4f; margin-bottom:20px;
+    }
+    h2 { font-size: 2.5rem; font-weight: 700; line-height: 1.2; margin-bottom: 16px; letter-spacing: -0.02em; }
+    .section-desc { font-size: 1.1rem; color: rgba(255,255,255,0.6); margin-bottom: 40px; max-width: 560px; }
+    .form {
+      display: grid; gap: 20px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px; padding: 40px; transition: .2s;
+    }
+    .form:hover { border-color: rgba(255,31,79,0.2); box-shadow: 0 8px 40px rgba(255,31,79,0.1); }
+    .form-group { display: grid; gap: 8px; }
+    label { font-size: 0.85rem; font-weight: 500; color: rgba(255,255,255,0.7); }
+    input, textarea {
+      background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px; padding: 14px 16px; font-size: 1rem; color: #ffffff;
+    }
+    input:focus, textarea:focus { outline: none; border-color: #2cf6ff; box-shadow: 0 0 0 3px rgba(44,246,255,0.1); }
+    textarea { min-height: 100px; resize: vertical; }
+    .btn-submit { background:#ff1f4f; color:#fff; border:none; border-radius:12px; padding:16px 32px; font-weight:700; }
+    .form-note { font-size: 0.85rem; color: rgba(255,255,255,0.4); text-align: center; }
+
+    /* CLIENT LOGOS (below audit) */
+    .clients { padding:40px 0; border-top:1px solid rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,255,255,0.06); }
+    .clients-label { font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.4); margin-bottom:20px; text-align:center; }
+    .clients-scroller { position:relative; overflow:hidden; }
+    .clients-grid {
+      display:flex; gap:40px; align-items:center; width:max-content;
+      animation: brandScroll 28s linear infinite; will-change: transform; padding-bottom:6px;
+    }
+    .clients-scroller:hover .clients-grid { animation-play-state: paused; }
+    @keyframes brandScroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+    .client-logo {
+      width:110px; height:44px; border-radius:10px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+      border:1px solid rgba(255,255,255,0.08); display:grid; place-items:center;
+      user-select:none; overflow:hidden;
+    }
+    .client-logo img {
+      max-height:28px; width:auto; filter: brightness(1) contrast(1.05);
+      opacity:0.9;
+    }
+    /* D1: feather/blur edges */
+    .clients-scroller::before,
+    .clients-scroller::after {
+      content:""; position:absolute; top:0; width:48px; height:100%; pointer-events:none; z-index:2;
+    }
+    .clients-scroller::before {
+      left:0;
+      background: linear-gradient(to right, #0a0a0a 0%, rgba(10,10,10,0.6) 60%, rgba(10,10,10,0) 100%);
+    }
+    .clients-scroller::after {
+      right:0;
+      background: linear-gradient(to left, #0a0a0a 0%, rgba(10,10,10,0.6) 60%, rgba(10,10,10,0) 100%);
+    }
+
+    /* RESULTS (quotes) */
+    .results { padding:60px 0; }
+    .results-grid { display:grid; gap:20px; }
+    .result {
+      background: rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06);
+      border-radius:16px; padding:32px; transition:.2s;
+    }
+    .result:hover { border-color: rgba(44,246,255,0.3); transform: translateY(-4px); box-shadow: 0 8px 40px rgba(44,246,255,0.1); }
+    .result-quote { font-size:1.15rem; line-height:1.6; margin-bottom:18px; color:rgba(255,255,255,0.9); }
+    .result-highlight { color:#2cf6ff; font-weight:700; }
+    .result-footer { display:flex; gap:12px; align-items:center; border-top:1px solid rgba(255,255,255,0.06); padding-top:16px; }
+    .author-avatar {
+      width:44px; height:44px; border-radius:8px; overflow:hidden; background:rgba(44,246,255,0.15);
+      display:grid; place-items:center;
+    }
+    .author-avatar img { width:100%; height:100%; object-fit:cover; display:block; }
+    .author-name { font-size:0.95rem; font-weight:600; }
+    .author-title { font-size:0.85rem; color:rgba(255,255,255,0.5); }
+
+    /* ARTICLES (placeholders, kept) */
+    .articles { padding:60px 0; }
+    .articles-grid { display:grid; gap:16px; }
+    .article { background: rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:16px; }
+    .article-thumb { width:100%; height:160px; border-radius:10px; background: linear-gradient(135deg,#1b1b1b,#2a2a2a); margin-bottom:12px; }
+    .article-date { font-size:0.85rem; color:rgba(255,255,255,0.45); margin-bottom:6px; }
+    .article-title { font-size:1.15rem; font-weight:700; margin-bottom:6px; }
+    .article-sub { font-size:0.95rem; color:rgba(255,255,255,0.6); }
+
+    /* MANIFESTO (newsletter) */
+    .manifesto { padding:60px 0; background: linear-gradient(180deg, transparent 0%, rgba(255,31,79,0.03) 100%); }
+    .manifesto-box { background: rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); border-radius:16px; padding:40px; text-align:center; }
+    .manifesto-title { font-size:1.8rem; font-weight:700; margin-bottom:16px; letter-spacing:-0.02em; }
+    .manifesto-text { font-size:1.1rem; line-height:1.7; color:rgba(255,255,255,0.7); margin-bottom:32px; max-width:560px; margin-left:auto; margin-right:auto; }
+    .newsletter-form { display:flex; gap:12px; max-width:480px; margin:0 auto; }
+    .newsletter-form input { flex:1; background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:14px 16px; font-size:1rem; color:#fff; }
+    .newsletter-form input:focus { outline:none; border-color:#2cf6ff; box-shadow:0 0 0 3px rgba(44,246,255,0.1); }
+    .btn-newsletter { background:#ff1f4f; color:#fff; border:none; border-radius:10px; padding:14px 28px; font-size:1rem; font-weight:700; cursor:pointer; }
+
+    /* FOOTER */
+    footer { padding: 50px 0; text-align:center; border-top:1px solid rgba(255,255,255,0.06); }
+    .footer-links { display:flex; justify-content:center; gap:32px; margin-bottom:20px; }
+    .footer-links a { color: rgba(255,255,255,0.5); text-decoration:none; font-size:0.9rem; }
+    .footer-links a:hover { color:#2cf6ff; }
+    .copyright { font-size:0.85rem; color:rgba(255,255,255,0.3); }
+
+    /* Animations reused */
+    .fade-in { opacity:0; animation: fadeIn .8s ease-out forwards; }
+    @keyframes fadeIn { to { opacity:1 } }
+
+    /* MOBILE */
+    @media (max-width: 640px) {
+      h1 { font-size: 2.5rem; }
+      .hero-sub { font-size: 1.05rem; }
+      .form { padding: 28px 20px; }
+      h2 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="orb"></div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <!-- orb + name + role (kept) -->
+      <div class="hero-topline" aria-label="Profile">
+        <div class="avatar" aria-hidden="true">TA</div>
+        <div class="hero-id">
+          <div class="hero-id-name">Tan Ağırkaya</div>
+          <div class="hero-id-role">Social Media Strategist</div>
+        </div>
+      </div>
+
+      <h1>How to turn social media reach into installs and revenue.</h1>
+      <p class="hero-sub">Get a FREE 48-hour social media audit + weekly Social Media Manifesto with trends and insights.</p>
+
+      <div class="cta-row">
+        <a href="#" class="cta-primary" id="ctaAudit" aria-label="Get your free audit">Get your free audit</a>
+        <a href="#" class="cta-text" id="ctaManifesto">Read the Social Media Manifesto daily</a>
+      </div>
+
+      <!-- minimal inline email capture (B2: arrow inside field, not a second big button) -->
+      <form class="hero-inline-form" id="heroForm">
+        <div class="hero-input-wrap">
+          <input type="email" id="heroEmail" placeholder="you@example.com" aria-label="Email">
+          <button type="submit" class="input-action" id="heroSubmit" aria-label="Send audit request">➜</button>
+        </div>
+      </form>
+
+      <!-- Visual now uses your image -->
+      <div class="before-after">
+        <img class="ba-img" src="/tanifesto/images/before-afteraudit.png" alt="Audit impact visual">
+        <div class="ba-caption" id="quoteRotator">
+          “The audit showed blind spots in five minutes that I missed for a year.” <span class="quote-role">— Marketing Lead, AI App</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUDIT FORM -->
+  <section class="audit" id="audit">
+    <div class="container">
+      <span class="section-tag">Free Audit</span>
+      <h2>What you get in 48 hours</h2>
+      <p class="section-desc">3 video ideas · 2 critical fixes · 1 weekly system · Hook library</p>
+      <form class="form" id="auditForm">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" required placeholder="you@example.com" autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="links">Your TikTok / Instagram</label>
+          <input type="text" id="links" required placeholder="Paste your profile URL">
+        </div>
+        <div class="form-group">
+          <label>What you want</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="goal" value="installs"> Installs / Downloads / Purchases</label>
+            <label><input type="checkbox" name="goal" value="views"> Views / Reach</label>
+            <label><input type="checkbox" name="goal" value="engagement"> Engagement</label>
+            <label><input type="checkbox" name="goal" value="influencer"> Influencer marketing strategy</label>
+            <label><input type="checkbox" name="goal" value="other"> Other</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="goal">What you want (optional)</label>
+          <textarea id="goal" placeholder="More installs, better reach, launch prep..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit" id="submitBtn">Send for Audit</button>
+        <p class="form-note">PDF delivered to your inbox in 48h</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- CLIENT LOGOS (below audit) -->
+  <section class="clients">
+    <div class="container">
+      <div class="clients-label">Trusted by</div>
+      <div class="clients-scroller">
+        <div class="clients-grid">
+          <!-- 1..7 -->
+          <div class="client-logo"><img src="/tanifesto/images/logo_brand01.png" alt="Client logo 1"></div>
+          <div class="client-logo"><img src="/tanifesto/images/logo_brand02.png" alt="Client logo 2"></div>
+          <div class="client-logo"><img src="/tanifesto/images/logo_brand03.png" alt="Client logo 3"></div>
+          <div class="client-logo"><img src="/tanifesto/images/logo_brand04.png" alt="Client logo 4"></div>
+          <div class="client-logo"><img src="/tanifesto/images/logo_brand05.png" alt="Client logo 5"></div>
+          <div class="client-logo"><img src="/tanifesto/images/logo_brand06.png" alt="Client logo 6"></div>
+          <div class="client-logo"><img src="/tanifesto/images/logo_brand07.png" alt="Client logo 7"></div>
+          <!-- duplicate for seamless loop -->
+          <div class="client-logo"><img src="/tanifesto/images/logo_brand01.png" alt="Client logo 1"></div>
+          <div class="client-logo"><img src="/tanifesto/images/logo_brand02.png" alt="Client logo 2"></div>
+          <div class="client-logo"><img src="/tanifesto/images/logo_brand03.png" alt="Client logo 3"></div>
+          <div class="client-logo"><img src="/tanifesto/images/logo_brand04.png" alt="Client logo 4"></div>
+          <div class="client-logo"><img src="/tanifesto/images/logo_brand05.png" alt="Client logo 5"></div>
+          <div class="client-logo"><img src="/tanifesto/images/logo_brand06.png" alt="Client logo 6"></div>
+          <div class="client-logo"><img src="/tanifesto/images/logo_brand07.png" alt="Client logo 7"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS (quotes) -->
+  <section class="results">
+    <div class="container">
+      <span class="section-tag">After the audit</span>
+      <h2>What others achieved</h2>
+      <div class="results-grid">
+        <div class="result">
+          <p class="result-quote">“AI Filter App had viral views but installs were flat. I reworked the openers and the store CTA, and they saw <span class="result-highlight">+50K installs in 30 days</span>.”</p>
+          <div class="result-footer">
+            <div class="author-avatar"><img src="/tanifesto/images/testimonial_logo01.png" alt="AI Filter App"></div>
+            <div>
+              <div class="author-name">AI Filter App</div>
+              <div class="author-title">Product Lead</div>
+            </div>
+          </div>
+        </div>
+        <div class="result">
+          <p class="result-quote">“Summary AI struggled with watch time. The audit gave us a repeatable format and creator brief, and in four weeks we hit <span class="result-highlight">2× engagement</span>.”</p>
+          <div class="result-footer">
+            <div class="author-avatar"><img src="/tanifesto/images/testimonial_logo02.png" alt="Summary AI"></div>
+            <div>
+              <div class="author-name">Summary AI</div>
+              <div class="author-title">PM</div>
+            </div>
+          </div>
+        </div>
+        <div class="result">
+          <p class="result-quote">“Invoice App’s content had weak CTR. We changed scripting and thumbnails per the doc, and ads + organic jumped to <span class="result-highlight">3.7× CTR</span>.”</p>
+          <div class="result-footer">
+            <div class="author-avatar"><img src="/tanifesto/images/testimonial_logo03.png" alt="Invoice App"></div>
+            <div>
+              <div class="author-name">Invoice App</div>
+              <div class="author-title">Growth</div>
+            </div>
+          </div>
+        </div>
+        <div class="result">
+          <p class="result-quote">“Study Notes App posted inconsistently. We adopted the 7-day cadence and scripts, and the first month ended at <span class="result-highlight">12M views</span>.”</p>
+          <div class="result-footer">
+            <div class="author-avatar"><img src="/tanifesto/images/testimonial_logo04.png" alt="Study Notes App"></div>
+            <div>
+              <div class="author-name">Study Notes App</div>
+              <div class="author-title">Founder</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLES (placeholders only) -->
+  <section class="articles">
+    <div class="container">
+      <span class="section-tag">Growth Insights</span>
+      <h2>Learn from the audits</h2>
+      <div class="articles-grid">
+        <article class="article">
+          <div class="article-thumb"></div>
+          <div class="article-date">Apr 06, 2024</div>
+          <div class="article-title">How to get your 1st customer</div>
+          <div class="article-sub">If you have 0 audience and $0 for marketing, here are 4 strategies that got my first customers.</div>
+        </article>
+        <article class="article">
+          <div class="article-thumb" style="background:linear-gradient(135deg,#1b1b1b,#242424)"></div>
+          <div class="article-date">Mar 22, 2025</div>
+          <div class="article-title">3 hooks that still work for AI apps</div>
+          <div class="article-sub">Short patterns that drive watch time and installs without bait.</div>
+        </article>
+        <article class="article">
+          <div class="article-thumb" style="background:linear-gradient(135deg,#1b1b1b,#2e2e2e)"></div>
+          <div class="article-date">Feb 14, 2025</div>
+          <div class="article-title">Why your Reels don’t convert</div>
+          <div class="article-sub">Map content to product outcomes so views become users.</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- MANIFESTO NEWSLETTER -->
+  <section class="manifesto" id="newsletter">
+    <div class="container">
+      <div class="manifesto-box">
+        <h2 class="manifesto-title">The Social Media Manifesto</h2>
+        <p class="manifesto-text">Growth is not random. Platforms reward patterns. Get my weekly breakdown of what's working right now + frameworks you can reuse.</p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" placeholder="you@example.com" required id="newsletterEmail">
+          <button type="submit" class="btn-newsletter" id="newsletterBtn">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="#">Email</a>
+        <a href="#">2BViral</a>
+        <a href="#">Twitter</a>
+        <a href="#">LinkedIn</a>
+      </div>
+      <div class="copyright">© 2025 Tan Ağırkaya</div>
+    </div>
+  </footer>
+
+  <script>
+    // Disable navigation/backlinks and fake submits (UX-only)
+    document.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', e => e.preventDefault());
+    });
+
+    // Hero inline form send (UX only)
+    document.getElementById('heroForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const btn = document.getElementById('heroSubmit');
+      btn.disabled = true; btn.textContent = '✓';
+    });
+
+    // Audit form (UX only)
+    document.getElementById('auditForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true; btn.textContent = 'Sent';
+    });
+
+    // Newsletter form (UX only)
+    document.getElementById('newsletterForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const btn = document.getElementById('newsletterBtn');
+      btn.disabled = true; btn.textContent = 'Subscribed';
+    });
+
+    // Rotating quotes for ba-caption (C)
+    const quotes = [
+      ["The audit showed blind spots in five minutes that I missed for a year.","Marketing Lead, AI App"],
+      ["Applied one line from the newsletter, and our next post hit 200K views.","Growth Manager, Productivity Startup"],
+      ["It’s not ‘tips.’ It’s direction. The audit and weekly notes fixed our messaging fast.","Head of Content, EdTech Company"],
+      ["We stopped posting random videos. The audit turned chaos into a plan.","Founder, Learning App"],
+      ["Every Sunday email gives one action that actually moves numbers.","Social Media Lead, SaaS Brand"],
+      ["We used the audit + newsletter combo. Engagement doubled in two weeks.","Marketing Director, Creator Platform"],
+      ["No vague advice. Just strategy that works for real accounts.","Growth PM, AI Notes Tool"],
+      ["The audit told us what not to do. That alone saved our ad budget.","Co-Founder, Startup Studio"]
+    ];
+    (function rotateQuotes(){
+      const el = document.getElementById('quoteRotator');
+      let i = 0;
+      setInterval(() => {
+        i = (i + 1) % quotes.length;
+        el.style.opacity = 0;
+        setTimeout(() => {
+          el.innerHTML = `“${quotes[i][0]}” <span class="quote-role">— ${quotes[i][1]}</span>`;
+          el.style.opacity = 1;
+        }, 250);
+      }, 4000);
+    })();
+  </script>
+</body>
+</html>
