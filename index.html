@@ -15,14 +15,12 @@
       font-size: 17px;
       overflow-x: hidden;
     }
-    /* subtle grain (unchanged) */
     body::before {
       content: '';
       position: fixed; inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.02'/%3E%3C/svg%3E");
       pointer-events: none; z-index: 999;
     }
-    /* floating orb (unchanged) */
     .orb {
       position: fixed; width: 600px; height: 600px; border-radius: 50%;
       background: radial-gradient(circle, rgba(255,31,79,0.15) 0%, transparent 70%);
@@ -33,7 +31,6 @@
 
     .container { max-width: 680px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
 
-    /* HERO */
     .hero {
       min-height: 90vh; display: flex; flex-direction: column; justify-content: center;
       padding: 80px 0 60px;
@@ -67,7 +64,6 @@
     .cta-text { display:block; margin-top:8px; font-size:0.95rem; color:#fff; opacity:.75; }
     .cta-text:hover { opacity:1; text-decoration: underline; }
 
-    /* Inline email (B2) */
     .hero-inline-form { margin-top: 16px; display:flex; gap:0; flex-wrap:wrap; position:relative; }
     .hero-input-wrap { position: relative; flex:1; min-width:260px; }
     .hero-inline-form input {
@@ -84,7 +80,6 @@
     }
     .input-action:hover { background: rgba(255,255,255,0.1); }
 
-    /* Before/After visual (now an <img>) */
     .before-after { margin-top:16px; }
     .ba-img {
       width:100%;
@@ -101,7 +96,6 @@
     }
     .quote-role { color: rgba(255,255,255,0.5); font-size: 0.9rem; }
 
-    /* AUDIT FORM */
     .audit { padding: 60px 0; }
     .section-tag {
       display:inline-block; padding:6px 12px; background:rgba(255,31,79,0.1);
@@ -126,7 +120,6 @@
     .btn-submit { background:#ff1f4f; color:#fff; border:none; border-radius:12px; padding:16px 32px; font-weight:700; }
     .form-note { font-size: 0.85rem; color: rgba(255,255,255,0.4); text-align: center; }
 
-    /* CLIENT LOGOS (below audit) */
     .clients { padding:40px 0; border-top:1px solid rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,255,255,0.06); }
     .clients-label { font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.4); margin-bottom:20px; text-align:center; }
     .clients-scroller { position:relative; overflow:hidden; }
@@ -146,7 +139,6 @@
       max-height:28px; width:auto; filter: brightness(1) contrast(1.05);
       opacity:0.9;
     }
-    /* D1: feather/blur edges */
     .clients-scroller::before,
     .clients-scroller::after {
       content:""; position:absolute; top:0; width:48px; height:100%; pointer-events:none; z-index:2;
@@ -160,7 +152,6 @@
       background: linear-gradient(to left, #0a0a0a 0%, rgba(10,10,10,0.6) 60%, rgba(10,10,10,0) 100%);
     }
 
-    /* RESULTS (quotes) */
     .results { padding:60px 0; }
     .results-grid { display:grid; gap:20px; }
     .result {
@@ -179,7 +170,6 @@
     .author-name { font-size:0.95rem; font-weight:600; }
     .author-title { font-size:0.85rem; color:rgba(255,255,255,0.5); }
 
-    /* ARTICLES (placeholders, kept) */
     .articles { padding:60px 0; }
     .articles-grid { display:grid; gap:16px; }
     .article { background: rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:16px; }
@@ -188,7 +178,6 @@
     .article-title { font-size:1.15rem; font-weight:700; margin-bottom:6px; }
     .article-sub { font-size:0.95rem; color:rgba(255,255,255,0.6); }
 
-    /* MANIFESTO (newsletter) */
     .manifesto { padding:60px 0; background: linear-gradient(180deg, transparent 0%, rgba(255,31,79,0.03) 100%); }
     .manifesto-box { background: rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); border-radius:16px; padding:40px; text-align:center; }
     .manifesto-title { font-size:1.8rem; font-weight:700; margin-bottom:16px; letter-spacing:-0.02em; }
@@ -198,18 +187,15 @@
     .newsletter-form input:focus { outline:none; border-color:#2cf6ff; box-shadow:0 0 0 3px rgba(44,246,255,0.1); }
     .btn-newsletter { background:#ff1f4f; color:#fff; border:none; border-radius:10px; padding:14px 28px; font-size:1rem; font-weight:700; cursor:pointer; }
 
-    /* FOOTER */
     footer { padding: 50px 0; text-align:center; border-top:1px solid rgba(255,255,255,0.06); }
     .footer-links { display:flex; justify-content:center; gap:32px; margin-bottom:20px; }
     .footer-links a { color: rgba(255,255,255,0.5); text-decoration:none; font-size:0.9rem; }
     .footer-links a:hover { color:#2cf6ff; }
     .copyright { font-size:0.85rem; color:rgba(255,255,255,0.3); }
 
-    /* Animations reused */
     .fade-in { opacity:0; animation: fadeIn .8s ease-out forwards; }
     @keyframes fadeIn { to { opacity:1 } }
 
-    /* MOBILE */
     @media (max-width: 640px) {
       h1 { font-size: 2.5rem; }
       .hero-sub { font-size: 1.05rem; }
@@ -224,7 +210,6 @@
   <!-- HERO -->
   <section class="hero">
     <div class="container">
-      <!-- orb + name + role (kept) -->
       <div class="hero-topline" aria-label="Profile">
         <div class="avatar" aria-hidden="true">TA</div>
         <div class="hero-id">
@@ -241,7 +226,6 @@
         <a href="#" class="cta-text" id="ctaManifesto">Read the Social Media Manifesto daily</a>
       </div>
 
-      <!-- minimal inline email capture (B2: arrow inside field, not a second big button) -->
       <form class="hero-inline-form" id="heroForm">
         <div class="hero-input-wrap">
           <input type="email" id="heroEmail" placeholder="you@example.com" aria-label="Email">
@@ -249,9 +233,8 @@
         </div>
       </form>
 
-      <!-- Visual now uses your image -->
       <div class="before-after">
-        <img class="ba-img" src="/tanifesto/images/before-afteraudit.png" alt="Audit impact visual">
+        <img class="ba-img" src="./images/before-afteraudit.png" alt="Audit impact visual">
         <div class="ba-caption" id="quoteRotator">
           “The audit showed blind spots in five minutes that I missed for a year.” <span class="quote-role">— Marketing Lead, AI App</span>
         </div>
@@ -294,34 +277,32 @@
     </div>
   </section>
 
-  <!-- CLIENT LOGOS (below audit) -->
+  <!-- CLIENT LOGOS -->
   <section class="clients">
     <div class="container">
       <div class="clients-label">Trusted by</div>
       <div class="clients-scroller">
         <div class="clients-grid">
-          <!-- 1..7 -->
-          <div class="client-logo"><img src="/tanifesto/images/logo_brand01.png" alt="Client logo 1"></div>
-          <div class="client-logo"><img src="/tanifesto/images/logo_brand02.png" alt="Client logo 2"></div>
-          <div class="client-logo"><img src="/tanifesto/images/logo_brand03.png" alt="Client logo 3"></div>
-          <div class="client-logo"><img src="/tanifesto/images/logo_brand04.png" alt="Client logo 4"></div>
-          <div class="client-logo"><img src="/tanifesto/images/logo_brand05.png" alt="Client logo 5"></div>
-          <div class="client-logo"><img src="/tanifesto/images/logo_brand06.png" alt="Client logo 6"></div>
-          <div class="client-logo"><img src="/tanifesto/images/logo_brand07.png" alt="Client logo 7"></div>
-          <!-- duplicate for seamless loop -->
-          <div class="client-logo"><img src="/tanifesto/images/logo_brand01.png" alt="Client logo 1"></div>
-          <div class="client-logo"><img src="/tanifesto/images/logo_brand02.png" alt="Client logo 2"></div>
-          <div class="client-logo"><img src="/tanifesto/images/logo_brand03.png" alt="Client logo 3"></div>
-          <div class="client-logo"><img src="/tanifesto/images/logo_brand04.png" alt="Client logo 4"></div>
-          <div class="client-logo"><img src="/tanifesto/images/logo_brand05.png" alt="Client logo 5"></div>
-          <div class="client-logo"><img src="/tanifesto/images/logo_brand06.png" alt="Client logo 6"></div>
-          <div class="client-logo"><img src="/tanifesto/images/logo_brand07.png" alt="Client logo 7"></div>
+          <div class="client-logo"><img src="./images/logo_brand01.png" alt="Client logo 1"></div>
+          <div class="client-logo"><img src="./images/logo_brand02.png" alt="Client logo 2"></div>
+          <div class="client-logo"><img src="./images/logo_brand03.png" alt="Client logo 3"></div>
+          <div class="client-logo"><img src="./images/logo_brand04.png" alt="Client logo 4"></div>
+          <div class="client-logo"><img src="./images/logo_brand05.png" alt="Client logo 5"></div>
+          <div class="client-logo"><img src="./images/logo_brand06.png" alt="Client logo 6"></div>
+          <div class="client-logo"><img src="./images/logo_brand07.png" alt="Client logo 7"></div>
+          <div class="client-logo"><img src="./images/logo_brand01.png" alt="Client logo 1"></div>
+          <div class="client-logo"><img src="./images/logo_brand02.png" alt="Client logo 2"></div>
+          <div class="client-logo"><img src="./images/logo_brand03.png" alt="Client logo 3"></div>
+          <div class="client-logo"><img src="./images/logo_brand04.png" alt="Client logo 4"></div>
+          <div class="client-logo"><img src="./images/logo_brand05.png" alt="Client logo 5"></div>
+          <div class="client-logo"><img src="./images/logo_brand06.png" alt="Client logo 6"></div>
+          <div class="client-logo"><img src="./images/logo_brand07.png" alt="Client logo 7"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- RESULTS (quotes) -->
+  <!-- RESULTS -->
   <section class="results">
     <div class="container">
       <span class="section-tag">After the audit</span>
@@ -330,7 +311,7 @@
         <div class="result">
           <p class="result-quote">“AI Filter App had viral views but installs were flat. I reworked the openers and the store CTA, and they saw <span class="result-highlight">+50K installs in 30 days</span>.”</p>
           <div class="result-footer">
-            <div class="author-avatar"><img src="/tanifesto/images/testimonial_logo01.png" alt="AI Filter App"></div>
+            <div class="author-avatar"><img src="./images/testimonial_logo01.png" alt="AI Filter App"></div>
             <div>
               <div class="author-name">AI Filter App</div>
               <div class="author-title">Product Lead</div>
@@ -340,7 +321,7 @@
         <div class="result">
           <p class="result-quote">“Summary AI struggled with watch time. The audit gave us a repeatable format and creator brief, and in four weeks we hit <span class="result-highlight">2× engagement</span>.”</p>
           <div class="result-footer">
-            <div class="author-avatar"><img src="/tanifesto/images/testimonial_logo02.png" alt="Summary AI"></div>
+            <div class="author-avatar"><img src="./images/testimonial_logo02.png" alt="Summary AI"></div>
             <div>
               <div class="author-name">Summary AI</div>
               <div class="author-title">PM</div>
@@ -350,7 +331,7 @@
         <div class="result">
           <p class="result-quote">“Invoice App’s content had weak CTR. We changed scripting and thumbnails per the doc, and ads + organic jumped to <span class="result-highlight">3.7× CTR</span>.”</p>
           <div class="result-footer">
-            <div class="author-avatar"><img src="/tanifesto/images/testimonial_logo03.png" alt="Invoice App"></div>
+            <div class="author-avatar"><img src="./images/testimonial_logo03.png" alt="Invoice App"></div>
             <div>
               <div class="author-name">Invoice App</div>
               <div class="author-title">Growth</div>
@@ -360,7 +341,7 @@
         <div class="result">
           <p class="result-quote">“Study Notes App posted inconsistently. We adopted the 7-day cadence and scripts, and the first month ended at <span class="result-highlight">12M views</span>.”</p>
           <div class="result-footer">
-            <div class="author-avatar"><img src="/tanifesto/images/testimonial_logo04.png" alt="Study Notes App"></div>
+            <div class="author-avatar"><img src="./images/testimonial_logo04.png" alt="Study Notes App"></div>
             <div>
               <div class="author-name">Study Notes App</div>
               <div class="author-title">Founder</div>
@@ -371,7 +352,7 @@
     </div>
   </section>
 
-  <!-- ARTICLES (placeholders only) -->
+  <!-- ARTICLES -->
   <section class="articles">
     <div class="container">
       <span class="section-tag">Growth Insights</span>
@@ -399,7 +380,7 @@
     </div>
   </section>
 
-  <!-- MANIFESTO NEWSLETTER -->
+  <!-- MANIFESTO -->
   <section class="manifesto" id="newsletter">
     <div class="container">
       <div class="manifesto-box">
@@ -413,7 +394,6 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="container">
       <div class="footer-links">
@@ -427,33 +407,26 @@
   </footer>
 
   <script>
-    // Disable navigation/backlinks and fake submits (UX-only)
-    document.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', e => e.preventDefault());
-    });
+    document.querySelectorAll('a').forEach(a => a.addEventListener('click', e => e.preventDefault()));
 
-    // Hero inline form send (UX only)
     document.getElementById('heroForm').addEventListener('submit', e => {
       e.preventDefault();
       const btn = document.getElementById('heroSubmit');
       btn.disabled = true; btn.textContent = '✓';
     });
 
-    // Audit form (UX only)
     document.getElementById('auditForm').addEventListener('submit', e => {
       e.preventDefault();
       const btn = document.getElementById('submitBtn');
       btn.disabled = true; btn.textContent = 'Sent';
     });
 
-    // Newsletter form (UX only)
     document.getElementById('newsletterForm').addEventListener('submit', e => {
       e.preventDefault();
       const btn = document.getElementById('newsletterBtn');
       btn.disabled = true; btn.textContent = 'Subscribed';
     });
 
-    // Rotating quotes for ba-caption (C)
     const quotes = [
       ["The audit showed blind spots in five minutes that I missed for a year.","Marketing Lead, AI App"],
       ["Applied one line from the newsletter, and our next post hit 200K views.","Growth Manager, Productivity Startup"],
